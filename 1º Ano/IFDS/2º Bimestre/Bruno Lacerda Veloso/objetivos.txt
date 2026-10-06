@@ -1,4 +1,0 @@
-Coisas que eu desejo aprender neste semestre
-1. Criação, modificação e exclusão de contas de usuário
-2. Definição de permissões de acesso a arquivos e pastas no Windows e Linux. 
-3. Diferença entre sistemas operacionais de código aberto como Linux e sistemas operacionais de código fechado como Windows.
