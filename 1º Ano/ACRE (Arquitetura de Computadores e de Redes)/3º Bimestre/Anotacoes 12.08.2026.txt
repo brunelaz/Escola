@@ -1,0 +1,47 @@
+Lembrar das 7 camadas de redes para a prova
+
+Camada de Aplicação (Application): É a camada que envia os dados diretamente para o usuário e a camada com qual o usuário interage diretamente. Ela fornece interfaces para que os usuários tenham uma experiência intuitiva com os dados
+Unidade de Dados: Dados (Data)
+Exemplos: HTTP, FTP
+
+Camada de Apresentação (Presentation): Ela traduz e criptografa os dados para que os softwares receptores consigam entende-los, ela também padroniza a sintaxe dos dados entre sistemas diferentes.
+Unidade de Dados: Dados (Data)
+Exemplos: JPEG, MP3
+
+Camada de Sessão (Session): Ela estabelece, gerencia e encerra as sessões de comunicação entre dois computadores. Ela garante que os canais de conversa permanecam aberto enquanto necessário
+Unidade de Dados: Dados (Data)
+Exemplos: NetBios, RPC
+
+Camada de Transporte (Transport) : Particiona os dados grandes em pedaços menores e garante a entrega confiável e ordenada de ponta a ponta
+Unidade de dados (PDU): Segmento (TCP) ou Datagrama (UDP)
+Exemplos: Protocolos TCP e UDP
+
+Camada de Redes (Network) : Determina o melhor caminho para os dados trafegarem, ela adiciona os endereços IP de início e de destino para que os dados naveguem com mais eficiência
+Unidade de dados: Pacotes
+Exemplo: IP, Roteadores
+
+Camada de Enlace (Datalink) : Controla como os dados entram e saem do meio físico e também faz a detecção de erros da camada física.
+Unidade de dados: Frames ou Quadros
+Exemplo: Ethernet, Wifi
+
+Camada Física (Physical) : Ela transmite os dados únicos de forma bruta (através de zeros e uns)
+Unidade de dados: Bits
+Exemplo: Cabo de fibra óptica
+
+
+Transmissão Simplex vai cair na prova
+A transmissão simplex é quando os dados viajam em apenas uma direção (Do emissor para o receptor)
+
+
+Start bit e stop bit vai cair na prova
+
+Start bit: Envia um sinal para o receptor dizendo que um caractére de dados está prestes a chegar
+
+Stop bit: Ele sinaliza ao receptor o término do caractére de dados e prepara a linha para o próximo envio de caracteres
+
+
+Pergunta que a miuky falou que pode colocar na prova:
+Se as máquinas que não estão no caminho de outras pararem, não acontece nada, porém se uma máquina central parar todas param
+Em sistemas como o anel, se uma máquina parar todas param porque uma depende da outra
+
+
