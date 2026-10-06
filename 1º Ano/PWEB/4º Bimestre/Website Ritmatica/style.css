@@ -33,7 +33,7 @@ h1, h2, h3, .botao, .menu a {
 /* Topo e Logo */
 .topo {
   text-align: center;
-  padding: 48px 20px 28px;
+  padding: 5px 20px 28px;
   background: radial-gradient(ellipse at 50% 40%, rgba(108,75,255,.55), transparent 65%);
 }
 
@@ -146,7 +146,7 @@ section p {
   margin-right: auto;
 }
 
-/* Estilos do Vídeo de Gameplay */
+/* ESTILOS DO VÍDEO DE GAMEPLAY */
 .video-container {
   position: relative;
   width: 100%;
@@ -166,7 +166,7 @@ section p {
   border: none;
 }
 
-/* Estilos da Seção Fases (Imagem oculta que revela ao passar o mouse) */
+/* ESTILOS DA PARTE DE FASES DAS IMAGENS QUE ABREM QUANDO PASSA O MOUSE */
 .fases-container {
   display: flex;
   flex-direction: column;
@@ -207,7 +207,7 @@ section p {
   text-align: left;
 }
 
-/* Container da Imagem das Fases (Inicia oculto) */
+/* BLOCO DA IMAGEM DE FASES QUE INICIA OCULTO */
 .fase-imagem-container {
   max-height: 0;
   opacity: 0;
@@ -301,11 +301,13 @@ section p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
-              opacity 0.6s ease, 
+  text-decoration: none; 
+  color: inherit;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+              opacity 0.6s ease,
               box-shadow 0.6s ease,
               border-color 0.6s ease;
-  
+ 
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.6);
   pointer-events: none;
@@ -394,6 +396,7 @@ footer {
   color: var(--suave); 
   border-top: 1px solid var(--borda); 
 }
+
 
 /* Responsivo para mobile */
 @media (max-width: 800px) {
