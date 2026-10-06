@@ -1,0 +1,65 @@
+Código 1:
+
+int main(){
+    float a = 99.99;
+		float b = input();
+		float c = input();
+		a = b + c;
+		print(a);
+		send(a);}
+
+Código 2: 
+
+int main(){
+    float item1 = input();
+    float item2 = input();
+	float item3 = input();
+    float total = item1 + item2 + item3;
+    send(total);
+}
+
+Código 3:
+
+int main(){
+    float total = 0;
+    float valor = input();
+    
+    while(valor != -1){
+        if(valor != -1){
+            total = total + valor;
+        }
+        valor = input();
+    }
+    
+    if(total > 50){
+        total = total * 0.9;
+    }
+    
+    send(total);
+}
+
+Auto Clicker Terminal:
+
+# Velocidade configurada para 1 clique por segundo (1000 ms)
+$velocidade_ms = 1000 
+
+$codigo = @"
+using System.Runtime.InteropServices;
+public class Mouse {
+    [DllImport("user32.dll")]
+    public static extern void mouse_event(int dwFlags, int dx, int dy, int cButtons, int dwExtraInfo);
+    public static void Click() {
+        mouse_event(0x02, 0, 0, 0, 0); // Pressiona o botão esquerdo
+        mouse_event(0x04, 0, 0, 0, 0); // Solta o botão esquerdo
+    }
+}
+"@
+Add-Type -TypeDefinition $codigo
+
+Write-Host "Iniciando cliques a cada 1 segundo..." -ForegroundColor Green
+Write-Host "Para parar, volte nesta janela do PowerShell e aperte Ctrl + C." -ForegroundColor Yellow
+
+while ($true) {
+    [Mouse]::Click()
+    Start-Sleep -Milliseconds $velocidade_ms
+}

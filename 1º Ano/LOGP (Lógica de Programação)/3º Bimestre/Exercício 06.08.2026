@@ -1,0 +1,126 @@
+#include <stdio.h>
+#include <math.h>
+
+int pott(int *x) { // Potencia 3 de X
+	*x = (int)pow(*x, 3);
+	printf("O valor de X elevado ao cubo e: %d\n", *x);
+	return *x;
+}
+
+int raiz(int *x) { // Raiz Quadrada de X
+	if (*x < 0) {
+		printf("Nao existe raiz quadrada de numero negativo nos reais.\n");
+	} else {
+		float resp = sqrt(*x);
+		printf("A raiz quadrada de x e: %.2f\n", resp);
+	}
+	return *x;
+}
+
+int fatt(int *x) { // Fatorial de X
+int fat; 
+for(fat =1; *x >1; *x = *x - 1)
+{
+	fat = fat * (*x);
+}
+*x = fat;
+printf("O fatorial de x e: %d", fat);
+return *x;
+}
+
+int primo(int *x) {
+	int i, n, eh_primo = 1;
+	n = *x;
+	if (n <= 1) {
+		eh_primo = 0;
+	} else {
+		for (i = 2; i < n; i++) {
+			if (n % i == 0) {
+				eh_primo = 0;
+				break;
+			}
+		}
+	}
+	if(eh_primo == 1) {
+		printf("O numero digitado e primo.\n");
+	} else {
+		printf("O numero digitado nao e primo.\n");
+	}
+	return eh_primo;
+}
+
+int somm(int *x) { // Soma de 1 ate X
+	int xi, soma = 0;
+	for (xi = 1; xi <= *x; xi++) {
+		soma += xi;
+	}
+	*x = soma;
+	printf("A soma de 1 ate X e: %d\n", *x);
+	return *x;
+}
+
+int parouimpar(int *x) { // X é Par ou impar
+	if (*x % 2 == 0) {
+		printf("O numero %d e par.\n", *x);
+	} else {
+		printf("O numero %d e impar.\n", *x);
+	}
+	return *x;
+}
+
+int divv(int *x) { // Exibir os divisores de X
+	int i;
+	printf("Os divisores de %d sao: ", *x);
+	for (i = 1; i <= *x; i++) {
+		if (*x % i == 0) {
+			printf("%d ", i);
+		}
+	}
+	printf("\n");
+	return *x;
+}
+
+
+int main() {
+	int menu, x, sair;
+do {
+	printf("\nDigite o valor de X: ");
+	scanf("%d", &x);
+	printf("\nMENU\n1-Potencia de 3 de X\n2-Raiz quadrada de X\n3-Fatorial de X\n4-Verificar se X e primo\n5-Calcular a soma de 1 ate X\n6-Verificar se X e par ou impar\n7-Exibir todos os divisores de X\n8-Sair do Menu\n");
+	printf("\nDigite uma opcao: ");
+	scanf("%d", &menu);
+		switch (menu) {
+			case 1:
+				pott(&x);
+				break;
+			case 2:
+				raiz(&x);
+				break;
+			case 3:
+				fatt(&x);
+				break;
+			case 4:
+				primo(&x);
+				break;
+			case 5:
+				somm(&x);
+				break;
+			case 6:
+				parouimpar(&x);
+				break;
+			case 7:
+				divv(&x);
+				break;
+			case 8:
+				printf("Saindo\n");
+				break;
+			default:
+				printf("Opcao invalida!\n");
+				break;
+		}
+		
+	}
+		while (menu != 8);
+		return 0;
+	}
+
