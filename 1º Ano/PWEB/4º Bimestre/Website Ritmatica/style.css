@@ -215,7 +215,6 @@ section p {
   transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, margin-top 0.4s ease-in-out;
 }
 
-/* Revela e expande a imagem suavemente quando o mouse passa por cima do card */
 .fase-card:hover .fase-imagem-container {
   max-height: 400px;
   opacity: 1;
@@ -396,7 +395,6 @@ footer {
   color: var(--suave); 
   border-top: 1px solid var(--borda); 
 }
-
 
 /* Responsivo para mobile */
 @media (max-width: 800px) {

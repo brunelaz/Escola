@@ -18,12 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
     { 
       nome: "Arthur Muller", 
       cargo: "Documentação", 
-      github: "https://github.com/" 
+      github: "https://github.com" 
     },
     { 
       nome: "Arthur Moreira", 
       cargo: "Documentação", 
-      github: "https://github.com/" 
+      github: "https://github.com/ArthurMorSJ" 
     }
   ];
 
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!track || !btnPrev || !btnNext) return;
 
-  // Criação dinâmica dos cards como elementos <a> (links)
+  // CRIAR OS CARDS COMO ELEMENTOS:
   membros.forEach((membro, index) => {
     const card = document.createElement('a');
     card.classList.add('carousel-card');
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Navegação pelos botões
+  // LÓGICA DE NAVEGAR PELOS BOTÕES
   btnNext.addEventListener('click', (e) => {
     e.preventDefault(); 
     currentIndex = (currentIndex + 1) % totalCards;
