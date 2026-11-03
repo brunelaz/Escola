@@ -1,12 +1,12 @@
 /* CORES */
 :root {
-  --fundo: #0e0b1f;
-  --superficie: #1a1535;
-  --borda: #2e2660;
-  --texto: #f1eefc;
-  --suave: #b9b3d9;
-  --destaque: #e4ebe6;
-  --roxo: #6c4bff;
+  --fundo: #5E5653;            /* Cinza-escuro / Grafite */
+  --superficie: #7B7F8A;       /* Cinza-médio */
+  --borda: #AB978C;            /* Bege / Bege-acinzentado */
+  --texto: #E9E6E7;            /* Cinza-claro / Off-white */
+  --suave: #E9E6E7;            /* Cinza-claro / Off-white (para manter boa leitura secundária) */
+  --destaque: #6B7C98;         /* Azul-acinzentado / Slate blue */
+  --roxo: #6B7C98;             /* Adaptado para combinar com a nova paleta */
 }
 
 /* RESET GERAL */
@@ -39,7 +39,7 @@ h1, h2, h3, .botao, .menu a {
 .topo {
   text-align: center;
   padding: 5px 20px 28px;
-  background: radial-gradient(ellipse at 50% 40%, rgba(108,75,255,.55), transparent 65%);
+  background: radial-gradient(ellipse at 50% 40%, rgba(107, 124, 152, 0.45), transparent 65%);
 }
 
 /* LOGO */
@@ -75,7 +75,7 @@ h1, h2, h3, .botao, .menu a {
   flex-wrap: wrap;
   gap: 6px;
   padding: 12px 16px;
-  background: rgba(14,11,31,.88);
+  background: rgba(94, 86, 83, 0.92);
   backdrop-filter: blur(8px);
   border-top: 2px solid var(--destaque);
   border-bottom: 1px solid var(--borda);
@@ -100,7 +100,7 @@ h1, h2, h3, .botao, .menu a {
 
 /* LINK ATIVO DO MENU */
 .menu a.ativo { 
-  color: #1a1200; 
+  color: var(--texto); 
   background: var(--destaque); 
 }
 
@@ -112,7 +112,7 @@ h1, h2, h3, .botao, .menu a {
   gap: 8px;
   padding: 6px 16px !important;
   font-weight: 700;
-  color: #1a1200 !important;
+  color: var(--texto) !important;
   background: var(--destaque) !important;
   border-radius: 999px;
   transition: transform .15s, background .2s !important;
@@ -180,7 +180,7 @@ section p {
   width: 100%;
   height: 100%;
   border: none;
-  content-visibility: auto; /* OTIMIZAÇÃO: ADIA RENDERIZAÇÃO OFFSCREEN DO PLAYER DO YOUTUBE */
+  content-visibility: auto;
 }
 
 /* LISTA DE FASES */
@@ -196,20 +196,20 @@ section p {
 .fase-card {
   background: var(--superficie);
   border: 1px solid var(--borda);
-  border-left: 6px solid #e4ebe6;
+  border-left: 6px solid var(--destaque);
   border-radius: 8px;
   padding: 24px 28px;
   text-align: left;
   transition: all 0.3s ease;
   overflow: hidden;
-  content-visibility: auto; /* OTIMIZAÇÃO DE PERFORMANCE DE RENDERIZAÇÃO */
+  content-visibility: auto;
 }
 
 /* CARD DA FASE AO PASSAR O MOUSE */
 .fase-card:hover {
   transform: translateY(-3px);
   border-color: var(--destaque);
-  border-left-color: #e4ebe6;
+  border-left-color: var(--destaque);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
@@ -217,7 +217,7 @@ section p {
 .fase-info h3 {
   font-family: 'Chakra Petch', Arial, sans-serif;
   font-size: 1.3rem;
-  color: #e4ebe6;
+  color: var(--texto);
   margin-bottom: 6px;
 }
 
@@ -253,6 +253,109 @@ section p {
   display: block;
 }
 
+/* TUTORIAL */
+#tutorial {
+  border-bottom: 1px solid var(--borda);
+}
+
+/* GRADE DOS PASSOS */
+.tutorial-passos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 40px auto 0 auto;
+}
+
+/* CARD DO PASSO */
+.tutorial-card {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-top: 4px solid var(--destaque);
+  border-radius: 12px;
+  padding: 28px 20px 24px;
+  text-align: left;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* CARD DO PASSO AO PASSAR O MOUSE */
+.tutorial-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--destaque);
+}
+
+/* NÚMERO DO PASSO */
+.tutorial-numero {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 14px;
+  font-family: 'Chakra Petch', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--texto);
+  background: var(--destaque);
+  border-radius: 50%;
+}
+
+/* TÍTULO DO PASSO */
+.tutorial-card h3 {
+  font-size: 1.2rem;
+  color: var(--texto);
+  margin-bottom: 8px;
+}
+
+/* TEXTO DO PASSO */
+.tutorial-card p {
+  color: var(--suave);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* CAIXA DE CONTROLES */
+.tutorial-controles {
+  max-width: 700px;
+  margin: 40px auto 0 auto;
+  padding: 24px;
+  background: var(--fundo);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+}
+
+.tutorial-controles h3 {
+  font-size: 1.3rem;
+  margin-bottom: 18px;
+}
+
+/* LISTA DE CONTROLES */
+.controles-lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px 28px;
+}
+
+.controle-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--suave);
+}
+
+/* TECLA */
+.controle-item kbd {
+  min-width: 42px;
+  padding: 6px 12px;
+  font-family: 'Chakra Petch', Arial, sans-serif;
+  font-weight: 700;
+  color: var(--texto);
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-bottom-width: 3px;
+  border-radius: 8px;
+}
+
 /* GRADE DE FERRAMENTAS */
 .ferramentas-grid {
   display: grid;
@@ -270,7 +373,7 @@ section p {
   padding: 24px 20px;
   text-align: left;
   transition: transform 0.3s ease, border-color 0.3s ease;
-  content-visibility: auto; /* OTIMIZAÇÃO DE PERFORMANCE DE RENDERIZAÇÃO */
+  content-visibility: auto;
 }
 
 /* CARD DA FERRAMENTA AO PASSAR O MOUSE */
@@ -305,7 +408,7 @@ section p {
   position: relative;
   height: 420px;
   user-select: none;
-  contain: layout style paint; /* OTIMIZAÇÃO DE DESEMPENHO ISOLANDO O CARROSSEL */
+  contain: layout style paint;
 }
 
 /* TRILHA DO CARROSSEL */
@@ -343,7 +446,7 @@ section p {
   transform: translate(-50%, -50%) scale(0.6);
   pointer-events: none;
   z-index: 0;
-  will-change: transform, opacity; /* OTIMIZAÇÃO: ACELERAÇÃO POR HARDWARE PARA EVITAR GARGALOS */
+  will-change: transform, opacity;
 }
 
 /* CARD DO CENTRO */
@@ -382,7 +485,7 @@ section p {
   background: #ffffff;
   border-radius: 50%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  object-fit: cover; /* A FOTO PREENCHE O AVATAR PERFEITAMENTE SEM FICAR ESTICADO */
+  object-fit: cover;
 }
 
 /* NOME DO MEMBRO */
@@ -420,7 +523,7 @@ section p {
 /* BOTÕES DE SETA AO PASSAR O MOUSE */
 .carousel-btn:hover {
   background: var(--destaque);
-  color: #1a1200;
+  color: var(--texto);
   border-color: var(--destaque);
   transform: scale(1.1);
 }
@@ -432,6 +535,17 @@ section p {
   object-fit: contain;
 }
 
+/* IMAGEM DE TODO MUNDO */
+.foto-equipe-geral {
+  width: 100%;
+  max-width: 800px; 
+  height: auto;
+  display: block;
+  margin: 0 auto 30px auto; /* Centraliza a imagem na página */
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
 /* RODAPÉ */
 footer { 
   text-align: center; 
@@ -440,11 +554,102 @@ footer {
   border-top: 1px solid var(--borda); 
 }
 
+/* PÁGINA DE TUTORIAL */
+#tutorial-page {
+  padding-bottom: 90px;
+}
+
+/* LISTA DOS PASSOS */
+.tutorial-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 900px;
+  margin: 40px auto 0 auto;
+}
+
+/* PASSO (IMAGEM + TEXTO) */
+.tutorial-passo {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-left: 6px solid var(--destaque);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tutorial-passo:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* IMAGEM DO PASSO */
+.tutorial-imagem {
+  width: 46%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--borda);
+  display: block;
+}
+
+/* TEXTO DO PASSO */
+.tutorial-texto {
+  flex: 1;
+}
+
+.tutorial-texto h3 {
+  font-size: 1.4rem;
+  color: #212a38;
+  margin-bottom: 8px;
+}
+
+.tutorial-texto p {
+  max-width: none;
+  margin: 0;
+  color: var(--texto);
+}
+
+/* PASSOS PARES: IMAGEM À DIREITA */
+.tutorial-passo:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* BOTÃO VOLTAR */
+.tutorial-voltar {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 10px 24px;
+  font-family: 'Chakra Petch', Arial, sans-serif;
+  font-weight: 700;
+  color: var(--texto);
+  background: var(--destaque);
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform .15s, opacity .2s;
+}
+
+.tutorial-voltar:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
 /* RESPONSIVO PARA MOBILE */
 @media (max-width: 800px) {
   .carousel-wrapper {
     height: 360px;
     gap: 5px;
+  }
+  .tutorial-passo,
+  .tutorial-passo:nth-child(even) {
+    flex-direction: column;
+    text-align: center;
+  }
+  .tutorial-imagem {
+    width: 100%;
   }
   .carousel-card {
     width: 220px;

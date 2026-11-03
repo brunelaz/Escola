@@ -5,34 +5,34 @@ document.addEventListener('DOMContentLoaded', () => {
   //Aqui tem um bloco de colchetes para cada membro que eu coloco os nomes dos 4 tipos de variáveis (nome, cargo, github e avatar) e eles armazenam, respectivamente, o nome do membro, o cargo do membro, o link dele no github e a foto dele
     { 
       nome: "Bruno Lacerda", // Armazena o nome do membro 
-      cargo: "Desenvolvedor WEB e Programação", //Armazena o cargo do membro
+      cargo: "Desenvolvedor WEB", //Armazena o cargo do membro
       github: "https://github.com/brunelaz", //Armazena o link do github do membro 
-      avatar: "https://preview.redd.it/revelado-a-origem-dessa-foto-v0-zrvlihbyqzze1.jpg?width=225&format=pjpg&auto=webp&s=8efe80bae419ebe772993b75d3173cb9d805696a" // Armazena a foto/avatar do membro 
+      avatar: "https://i.postimg.cc/tT9K35pD/DSC01677.jpg" // Armazena a foto/avatar do membro 
       //Segue a mesma lógica para os próximos blocos
     }, //Fecha o bloco do primeiro membro
     { //Abre o bloco do próximo membro, e assim segue até o final dos blocos 
       nome: "Fernando Akira", 
       cargo: "Programador Principal e Gameplay", 
       github: "https://github.com/Akirakub",
-      avatar: "https://preview.redd.it/revelado-a-origem-dessa-foto-v0-zrvlihbyqzze1.jpg?width=225&format=pjpg&auto=webp&s=8efe80bae419ebe772993b75d3173cb9d805696a"
+      avatar: "https://i.postimg.cc/MKspvn0j/DSC01674.jpg"
     },
     { 
       nome: "Eduardo Feitosa", 
       cargo: "Músicas, Sprites e Programação", 
       github: "https://github.com/3feitosa",
-      avatar: "https://preview.redd.it/revelado-a-origem-dessa-foto-v0-zrvlihbyqzze1.jpg?width=225&format=pjpg&auto=webp&s=8efe80bae419ebe772993b75d3173cb9d805696a"
+      avatar: "https://i.postimg.cc/25WkcTsh/DSC01679.jpg"
     },
     { 
       nome: "Arthur Muller", 
       cargo: "Documentação", 
       github: "https://github.com",
-      avatar: "https://preview.redd.it/revelado-a-origem-dessa-foto-v0-zrvlihbyqzze1.jpg?width=225&format=pjpg&auto=webp&s=8efe80bae419ebe772993b75d3173cb9d805696a" 
+      avatar: "https://i.postimg.cc/rmL8vxcc/DSC01688.jpg" 
     },
     {
       nome: "Arthur Moreira", 
       cargo: "Documentação", 
       github: "https://github.com/ArthurMorSJ",
-      avatar: "https://preview.redd.it/revelado-a-origem-dessa-foto-v0-zrvlihbyqzze1.jpg?width=225&format=pjpg&auto=webp&s=8efe80bae419ebe772993b75d3173cb9d805696a" 
+      avatar: "https://i.postimg.cc/k4Fn9GXN/DSC01690.jpg" 
     }
     ];
   
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!track || !btnPrev || !btnNext) return; //A função dessa linha é interromper a execução do código JavaScript se os botões de avançar, voltar ou trilha não forem encontrados
   //A lógica dessa condicional funciona assim:
-  // Aqui, o sinal de exclamação (!) significa "NÃO", então é assim: se o if não encontrar o track OU (||) não achou o btnPrev OU (||) não achou o btnNext, ele executa o comando "return" que cancela o código inteiro
+  // Aqui, o sinal de exclamação (!) significa "NÃO", então é assim: se o if não encontrar o track OU (||) não achou o btnPrev OU (||) não achou o btnNext, he executa o comando "return" que cancela o código inteiro
 
   //BLOCO DE CRIAÇÃO DE CARDS
   // Otimização de Performance: Utilização de DocumentFragment para inserir todos os cards de uma só vez, evitando reflows excessivos no navegador
@@ -169,19 +169,18 @@ document.addEventListener('DOMContentLoaded', () => {
   btnNext.addEventListener('click', nextCard); // Adiciona uma função que recebe o clique no botão de avançar (seta para a direita). Quando o usuário clica, ele roda a função "nextCard"
   btnPrev.addEventListener('click', prevCard); // Adiciona uma função que recebe o clique no botão de voltar (seta para a esquerda). Quando o usuário clica, ele roda a função "prevCard"
 
-  // BLOCO DE CLIQUE NOS CARDS LATERAIS
-  cards.forEach((card) => { // Passa por cada card individualmente para verificar cliques neles
-    card.addEventListener('click', (e) => { // Adiciona um código para perceber o clique no card
-      if (card.classList.contains('prev')) { // Verifica se o usuário clicou no card que está do lado esquerdo (classe 'prev')
-        e.preventDefault(); // Impede que o link abra imediatamente para que o usuário possa primeiro trazer o card para o centro
-        prevCard(); // Roda a função de voltar para centralizar esse card
-      } else if (card.classList.contains('next')) { // Verifica se o usuário clicou no card que está do lado direito (classe 'next')
-        e.preventDefault(); // Impede que o link abra imediatamente
-        nextCard(); // Roda a função de avançar para centralizar esse card
+  // CLIQUE NOS CARDS LATERAIS PARA NAVEGAR DIRETAMENTE
+  cards.forEach((card) => {
+    card.addEventListener('click', (e) => {
+      if (card.classList.contains('prev')) {
+        e.preventDefault(); // Evita abrir o link se for o card lateral, apenas navega o carrossel
+        prevCard();
+      } else if (card.classList.contains('next')) {
+        e.preventDefault();
+        nextCard();
       }
     });
   });
 
-  // BLOCO DE INICIALIZAÇÃO
-  updateCarousel(); // Executa a função de atualizar o carrossel logo na primeira vez que a página abre, para deixar o primeiro card centralizado certinho
+  updateCarousel(); // Executa a função de atualização uma vez logo no começo para alinhar os cards na posição inicial correta
 });
