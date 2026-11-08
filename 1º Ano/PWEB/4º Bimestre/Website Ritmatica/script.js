@@ -7,32 +7,32 @@ document.addEventListener('DOMContentLoaded', () => {
       nome: "Bruno Lacerda", // Armazena o nome do membro 
       cargo: "Desenvolvedor WEB", //Armazena o cargo do membro
       github: "https://github.com/brunelaz", //Armazena o link do github do membro 
-      avatar: "https://i.postimg.cc/tT9K35pD/DSC01677.jpg" // Armazena a foto/avatar do membro 
+      avatar: "bruno.jpg" // Armazena a foto/avatar do membro 
       //Segue a mesma lógica para os próximos blocos
     }, //Fecha o bloco do primeiro membro
     { //Abre o bloco do próximo membro, e assim segue até o final dos blocos 
       nome: "Fernando Akira", 
-      cargo: "Programador Principal e Gameplay", 
+      cargo: "Programação e Gameplay", 
       github: "https://github.com/Akirakub",
-      avatar: "https://i.postimg.cc/MKspvn0j/DSC01674.jpg"
+      avatar: "fernando.jpg"
     },
     { 
       nome: "Eduardo Feitosa", 
-      cargo: "Músicas, Sprites e Programação", 
+      cargo: "Programação, Músicas, Sprites", 
       github: "https://github.com/3feitosa",
-      avatar: "https://i.postimg.cc/25WkcTsh/DSC01679.jpg"
+      avatar: "eduardo.jpg"
     },
     { 
       nome: "Arthur Muller", 
       cargo: "Documentação", 
       github: "https://github.com",
-      avatar: "https://i.postimg.cc/rmL8vxcc/DSC01688.jpg" 
+      avatar: "arthurmuller.jpg" 
     },
     {
       nome: "Arthur Moreira", 
       cargo: "Documentação", 
       github: "https://github.com/ArthurMorSJ",
-      avatar: "https://i.postimg.cc/k4Fn9GXN/DSC01690.jpg" 
+      avatar: "arthurmoreira.jpg" 
     }
     ];
   
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // track: pega a trilha do carrossel onde os cards estão salvos
   // querySelectorAll('.carousel-card'): busca todos os elementos HTML que possuem a classe CSS 'carousel-card' e guarda todos eles em forma de lista dentro da constante "cards"
 
-  let currentIndex = 0; // Cria uma variável que vai guardar o número da posição (índice) do card que está ativo (aparecendo no centro) no momento
+  let currentIndex = 4; // Cria uma variável que vai guardar o número da posição (índice) do card que está ativo (aparecendo no centro) no momento
   // Explicando parte por parte:
   // let: cria uma variável que pode ter seu valor alterado (diferente do const, porque o número da página atual vai mudar conforme o usuário clicar nos botões)
   // currentIndex: é o nome que demos para a variável que guarda o índice atual, começando no 0 (o primeiro membro da lista)
@@ -183,4 +183,32 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   updateCarousel(); // Executa a função de atualização uma vez logo no começo para alinhar os cards na posição inicial correta
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("modal-imagem");
+  const imgAmpliada = document.getElementById("img-ampliada");
+  const fechar = document.querySelector(".fechar-modal");
+  const imagensExpandiveis = document.querySelectorAll(".img-expandivel");
+
+  imagensExpandiveis.forEach(img => {
+    img.addEventListener("click", () => {
+      modal.style.display = "flex";
+      imgAmpliada.src = img.src;
+    });
+  });
+
+  if (fechar) {
+    fechar.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+  }
+
+  if (modal) {
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  }
 });
